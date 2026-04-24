@@ -20,14 +20,18 @@ let Dropdown = ({ states }) => {
 
     function handleLandmark(e) {
         setLandmark(e.target.value)
-        discription()
+        discription(state)
     }
 
-    function discription(){
+    useEffect(()=>{
+        discription('Madhya Pradesh')
+    },[])
+
+    function discription(s){
         let ans = ''
         for(let t of states){
             
-            if(t.name == state){
+            if(t.name == s){
                 // console.log('t',t.description)
                 // console.log('t.name',t.name)
                 ans = t.description
