@@ -1,5 +1,6 @@
 import React, { useState,useReducer } from "react";
 import "./../styles/App.css";
+import Dropdown from "./Dropdown";
 
 
 const states = [{
@@ -140,10 +141,10 @@ const states = [{
 
 function App() 
 {
-	// Do not alter/remove main div
+	
 	return (
 	<div id="main">
-		
+		<Dropdown states = {states}/>
 	</div>
 	);
 }
