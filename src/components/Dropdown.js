@@ -55,7 +55,7 @@ let Dropdown = ({ states }) => {
                 <select id='city' onChange={handleLandmark}>
                     {/* <option>-- Select State --</option> */}
                     {city[0].city.map(value => (
-                        <option key={value.name} id="state-title">{value.name}</option>
+                        <option title="city-title" key={value.name} id="state-title">{value.name}</option>
                     ))}
                 </select>
                 : <select id='city'>
@@ -63,7 +63,7 @@ let Dropdown = ({ states }) => {
                     {states.map(value => (
                         value.city.map(item => {
                             // console.log(value.city)
-                            return <option key={item.name} id="state-title">{item.name}</option>
+                            return <option title="city-title" key={item.name} id="state-title">{item.name}</option>
                         })
                     ))}
                 </select>}
