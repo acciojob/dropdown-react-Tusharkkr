@@ -20,7 +20,7 @@ let Dropdown = ({ states }) => {
 
     return (
         <div>
-            <select onChange={handleState}>
+            <select id='state' onChange={handleState}>
                 {/* <option>-- Select State --</option> */}
                 {states.map(value => (
                     <option>{value.name}</option>
@@ -29,7 +29,7 @@ let Dropdown = ({ states }) => {
 
 
             {city ?
-                <select onChange={handleLandmark}>
+                <select id='city' onChange={handleLandmark}>
                     {/* <option>-- Select State --</option> */}
                     {city[0].city.map(value => (
                         <option>{value.name}</option>
@@ -47,7 +47,7 @@ let Dropdown = ({ states }) => {
 
 
             {landmark ?
-                <select>
+                <select id='landmark'>
                     {city[0].city.map(value => {
                         console.log(value)
                         if(value.name == landmark){
