@@ -6,6 +6,7 @@ let Dropdown = ({ states }) => {
     let [city, setCity] = useState('')
     let [landmark, setLandmark] = useState('')
     let [dis, setDis] = useState('')
+    let [cdis, setCdis] = useState('')
 
     function handleState(e) {
         let value = e.target.value
@@ -20,14 +21,14 @@ let Dropdown = ({ states }) => {
 
     function handleLandmark(e) {
         setLandmark(e.target.value)
-        discription(state)
+        discription(state,city)
     }
 
     useEffect(()=>{
-        discription('Madhya Pradesh')
+        discription('Madhya Pradesh','Indore')
     },[])
 
-    function discription(s){
+    function discription(s,c){
         let ans = ''
         for(let t of states){
             
@@ -35,6 +36,12 @@ let Dropdown = ({ states }) => {
                 // console.log('t',t.description)
                 // console.log('t.name',t.name)
                 ans = t.description
+                for(let k of t.city){
+                    // console.log(k,t.city)
+                    if(k.name == c){
+                        setCdis(k.description)
+                    }
+                }
             }
         }
         setDis(ans)
@@ -94,6 +101,9 @@ let Dropdown = ({ states }) => {
                 </select>}
                 <div id="state-description">
                     {dis && <p>{dis}</p>}
+                </div>
+                <div id="city-description">
+                    {cdis && <p>{cdis}</p>}
                 </div>
         </div>
     )
