@@ -5,16 +5,35 @@ let Dropdown = ({ states }) => {
     let [state, setState] = useState('')
     let [city, setCity] = useState('')
     let [landmark, setLandmark] = useState('')
+    let [dis, setDis] = useState('')
 
     function handleState(e) {
         let value = e.target.value
+        // console.log(e)
         setLandmark('')
         setState(value)
-        setCity(states.filter(item => item.name == value))
+        let filter = states.filter(item => item.name == value)
+        setCity(filter)
+        setLandmark(filter[0].city[0].name)
+        // console.log(filter[0].city[0].name)
     }
 
     function handleLandmark(e) {
         setLandmark(e.target.value)
+        discription()
+    }
+
+    function discription(){
+        let ans = ''
+        for(let t of states){
+            
+            if(t.name == state){
+                // console.log('t',t.description)
+                // console.log('t.name',t.name)
+                ans = t.description
+            }
+        }
+        setDis(ans)
     }
 
 
@@ -23,7 +42,7 @@ let Dropdown = ({ states }) => {
             <select id='state' onChange={handleState}>
                 {/* <option>-- Select State --</option> */}
                 {states.map(value => (
-                    <option id="state-title">{value.name}</option>
+                    <option key={value.name} id="state-title">{value.name}</option>
                 ))}
             </select>
 
@@ -32,7 +51,7 @@ let Dropdown = ({ states }) => {
                 <select id='city' onChange={handleLandmark}>
                     {/* <option>-- Select State --</option> */}
                     {city[0].city.map(value => (
-                        <option id="state-title">{value.name}</option>
+                        <option key={value.name} id="state-title">{value.name}</option>
                     ))}
                 </select>
                 : <select id='city'>
@@ -40,7 +59,7 @@ let Dropdown = ({ states }) => {
                     {states.map(value => (
                         value.city.map(item => {
                             // console.log(value.city)
-                            return <option id="state-title">{item.name}</option>
+                            return <option key={item.name} id="state-title">{item.name}</option>
                         })
                     ))}
                 </select>}
@@ -49,12 +68,11 @@ let Dropdown = ({ states }) => {
             {landmark ?
                 <select id='landmark'>
                     {city[0].city.map(value => {
-                        console.log(value)
+                        // console.log(value)
                         if(value.name == landmark){
                             return value.landmarks.map(item=>(
-                                <option id="state-title">{item.name}</option>
+                                <option key={item.name} id="state-title">{item.name}</option>
                             ))
-                            // console.log(value)
                         }
                     })}
                 </select>
@@ -65,12 +83,14 @@ let Dropdown = ({ states }) => {
                             // console.log(item.landmarks)
                             return item.landmarks.map(item=>{
                                 // {console.log(value.city)}
-                                return <option id="state-title">{item.name}</option>
+                                return <option key={item.name} id="state-title">{item.name}</option>
                         })
                         })
                     ))}
                 </select>}
-
+                {dis && <div id="state-description">
+                    <p>{dis}</p>
+                </div>}
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React, { useState,useReducer } from "react";
 import "./../styles/App.css";
 import Dropdown from "./Dropdown";
+import Drop from "./Drop";
 
 
 const states = [{
@@ -145,6 +146,7 @@ function App()
 	return (
 	<div id="main">
 		<Dropdown states = {states}/>
+		{/* <Drop states={states}/> */}
 	</div>
 	);
 }
