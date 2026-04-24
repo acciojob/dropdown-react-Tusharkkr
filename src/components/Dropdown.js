@@ -59,7 +59,7 @@ let Dropdown = ({ states }) => {
                     })}
                 </select>
                 :
-                <select id='city'>
+                <select id='landmark'>
                     {states.map(value => (
                         value.city.map(item => {
                             // console.log(item.landmarks)
