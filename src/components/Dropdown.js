@@ -88,9 +88,9 @@ let Dropdown = ({ states }) => {
                         })
                     ))}
                 </select>}
-                {dis && <div id="state-description">
-                    <p>{dis}</p>
-                </div>}
+                <div id="state-description">
+                    {dis && <p>{dis}</p>}
+                </div>
         </div>
     )
 }
