@@ -23,7 +23,7 @@ let Dropdown = ({ states }) => {
             <select id='state' onChange={handleState}>
                 {/* <option>-- Select State --</option> */}
                 {states.map(value => (
-                    <option title={value.name} >{value.name}</option>
+                    <option id="state-title">{value.name}</option>
                 ))}
             </select>
 
@@ -32,7 +32,7 @@ let Dropdown = ({ states }) => {
                 <select id='city' onChange={handleLandmark}>
                     {/* <option>-- Select State --</option> */}
                     {city[0].city.map(value => (
-                        <option title={value.name}>{value.name}</option>
+                        <option id="state-title">{value.name}</option>
                     ))}
                 </select>
                 : <select id='city'>
@@ -40,7 +40,7 @@ let Dropdown = ({ states }) => {
                     {states.map(value => (
                         value.city.map(item => {
                             // console.log(value.city)
-                            return <option title={item.name}>{item.name}</option>
+                            return <option id="state-title">{item.name}</option>
                         })
                     ))}
                 </select>}
@@ -52,7 +52,7 @@ let Dropdown = ({ states }) => {
                         console.log(value)
                         if(value.name == landmark){
                             return value.landmarks.map(item=>(
-                                <option title={item.name}>{item.name}</option>
+                                <option id="state-title">{item.name}</option>
                             ))
                             // console.log(value)
                         }
@@ -65,7 +65,7 @@ let Dropdown = ({ states }) => {
                             // console.log(item.landmarks)
                             return item.landmarks.map(item=>{
                                 // {console.log(value.city)}
-                                return <option title={item.name}>{item.name}</option>
+                                return <option id="state-title">{item.name}</option>
                         })
                         })
                     ))}

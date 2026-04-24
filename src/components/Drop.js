@@ -13,9 +13,9 @@ let Dropdown = ({states}) => {
     }
 
     function city(state,city){
-        let cityObj = states.find(value => value.name == state)
-
-        
+        let stateObj = states.find(value => value.name == state)
+        let cityObj = stateObj.city.find(value => value.name == city)
+        return cityObj.landmarks.map(value => value.name)
     } 
         
     
