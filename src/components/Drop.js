@@ -8,8 +8,17 @@ let Dropdown = ({states}) => {
     }
 
     function city(state){
-        
+        let cityObj = states.find(value => value.name == state)
+        return cityObj.city.map(value => value.name)
     }
+
+    function city(state,city){
+        let cityObj = states.find(value => value.name == state)
+
+        
+    } 
+        
+    
 
 } 
 
