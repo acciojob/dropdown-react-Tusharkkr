@@ -35,7 +35,7 @@ let Dropdown = ({ states }) => {
                         <option>{value.name}</option>
                     ))}
                 </select>
-                : <select>
+                : <select id='city'>
                     {/* <option>-- Select State --</option> */}
                     {states.map(value => (
                         value.city.map(item => {
@@ -59,7 +59,7 @@ let Dropdown = ({ states }) => {
                     })}
                 </select>
                 :
-                <select>
+                <select id='city'>
                     {states.map(value => (
                         value.city.map(item => {
                             // console.log(item.landmarks)
